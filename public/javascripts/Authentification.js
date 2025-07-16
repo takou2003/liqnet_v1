@@ -1,6 +1,6 @@
 
 var hello = 0;
-url = "http://192.168.43.87:3000/Authentification";
+url = "https://liqnet-v1.onrender.com/Authentification";
 var informations = {};
 
 document.getElementById("check").addEventListener("click", authentification);
