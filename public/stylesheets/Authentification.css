@@ -1,0 +1,91 @@
+div{
+	width:350px;
+	height:500px;
+	position:relative;
+	background-color:transparent;
+	display:flex;
+	flex-direction:column;
+	top:30px;
+
+}
+div div{
+	
+	position:relative;
+	width:100%;
+	margin-top:2%;
+	
+}
+div .action{
+	height:15%;
+	background-color:gray;
+	display:flex;
+	flex-direction:row;
+}
+div .action div{
+	width:50px;
+	height:50px;
+	background-color:white;
+	position:relative;
+	left:30px;
+	top:5px;
+}
+div .action p{
+	position:relative;
+
+	left:60px;
+	font-size:22px;
+	top:06px;
+	color:white;
+	font-family:FreeSans;
+	
+
+}
+div .make{
+	height:60%;
+	background-color:silver;
+	display:flex;
+	flex-direction:column;
+}
+p{
+	font-size:23px;
+	color:white;
+	position:relative;
+	font-family:FreeSans;
+	
+}
+.ze{
+	font-size:13px;
+	color:red;
+	position:relative;
+	top:-37px;
+	left:110px;
+	cursor:pointer;
+	width:30px;
+}
+.error{
+	font-size:13px;
+	color:red;
+	position:relative;
+	font-family:FreeSans;
+	top:-30px;
+}
+input[type="text"],[type="password"]{
+	
+	width:250px;
+	height:30px;
+	position:relative;
+	outline:none;
+	border:2px solid white;
+	font-size:16px;
+	
+}
+button{
+	width:100px;
+	height:35px;
+	background-color:white;
+	border:none;
+	position:relative;
+	top:-5px;
+	
+	
+}

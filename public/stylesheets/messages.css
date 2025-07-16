@@ -1,0 +1,114 @@
+section{
+
+	display:flex;
+	flex-direction:column;
+	width:96vw;
+	height:96vh;
+}
+
+section .pres{
+	width:350px;
+	height:50px;
+	background-color:gray;
+}
+section .circle_name{
+	width:45px;
+	height:45px;
+	background-color:gray;
+	position:relative;
+	top:5px;
+	border-radius:25px;
+}
+section .day{
+	
+	width:100px;
+	height:20px;
+	background-color:gray;
+	top:13px;
+	position:relative;
+}
+section .circle_name p{
+	
+	font-size:25px;
+	font-family:FreeSans;
+	position:relative;
+	top:10px;
+	color:white;
+}
+.pe{
+	
+	font-family:FreeSans;
+	position:relative;
+	
+}
+.pt{
+	font-size:13px;
+	font-family:FreeSans;
+	position:relative;
+	top:03px;
+	color:white;
+}
+hr{
+	width:200px;
+}
+section .block_test{
+
+	width:300px;
+	height:50px;
+	background-color:gray;
+	position:relative;
+	top:20px;
+	display:flex;
+	flex-direction:row;
+	margin-top:3px;
+}
+section .block_test .pa{
+	font-size:12px;
+	position:relative;
+	top:-5px;
+	color:white;
+	font-family:FreeSans;
+}
+section .block_test .text{
+	width:70%;
+	height:80%;
+	position:relative;
+	top:10%;
+	left:2%;
+	background-color:transparent;
+}
+section .block_test .info{
+	width:20%;
+	height:80%;
+	position:relative;
+	top:10%;
+	left:8%;
+	background-color:transparent;
+	display:flex;
+	flex-direction:column;
+}
+section .block_test .info .time .pda{
+	font-size:11px;
+	position:relative;
+	top:-10px;
+	color:white;
+}
+section .block_test .info .supp{
+	width:25px;
+	height:25px;
+	border-radius:15px;
+	background-color:white;
+	position:relative;
+	left:20px;
+	top:1px;
+}
+section .block_test .info .time{
+	width:35px;
+	height:15px;
+	border-radius:0px;
+	background-color:transparent;
+	position:relative;
+	left:15px;
+	
+	
+}

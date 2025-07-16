@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel='stylesheet' href='/stylesheets/my_devices.css' />
+    <link rel="icon"type="image/png" href="/images/l1.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>liqnet</title>
+  </head>
+  <body>
+  	<section>
+  		<center>
+  			<div class="nav">
+  				<div class="logo_entreprise">
+  					<img src="/images/img<%=info[0].group_id %>.png" class="log">
+  				</div>
+  				<p><%= info[0].name_sg %></p>
+  				<div class="info_user"><p class="pte"><%=info[0].username %></p> </div>
+  				<img src="/images/logout.png" id="xte" onclick="window.location.href='/'">
+  				
+  			</div>
+  			<script>
+  				var device_sg = [] ;
+  				var table = <%- JSON.stringify(device) %>;
+  				var long = table.length;
+  				
+  				
+  			</script>
+  			<% device.forEach( devic =>{ %>
+  			<div class="views">
+  				<div>
+  					<p><%= devic.name %></p>
+  					<div onclick="window.location.href='/print?id_di=<%= devic.id_device %>&log=<%= info[0].group_id%>'"><img src="/images/report.png" class="icon2"></div>
+  				</div>
+  				
+  				<div class="visual">
+  					<div class="sharpe">
+  						<div class="bottle_head"></div>
+  						<div class="fram_e">
+  						
+  							<div class="volume" id="v_p"></div>
+  						</div>
+  				
+  						<div class="num_e"><p class="act"><%= devic.volume_actuel %>L</p></div>
+  					</div>
+  					<script>
+  					
+  				
+  						
+  						
+  					</script>
+  					<div class="semi_an" id = "mini_analyse">
+  						<div class="name_sec"><p class="pa">Actuality</p></div>
+  						
+  					</div>
+  				</div>
+  				
+  			</div>
+  			<% });%>
+  			
+  			
+  			
+  			<!--<div class="views"></div>-->
+  			<!--<div class="views"></div>-->
+  		</center>
+  	</section>
+  </body>
+</html>
+<script>
+  	var volume_rep = document.querySelectorAll("#v_p");
+  //console.log(volume_rep);
+					
+	let volume = <%- JSON.stringify(device) %>;
+					console.log(volume[0]);
+					
+	function make_volume(){
+	
+		for(var i = 0; i < volume.length; i++){
+					 	
+			var quotient = volume[i].volume_actuel/volume[i].volume_global;
+			console.log(quotient);
+			var mesure=quotient*100*1.9;
+					 	
+				if(mesure < 60){
+					volume_rep[i].style.backgroundColor="red";
+				}else {
+					volume_rep[i].style.backgroundColor="green";
+				}
+					var topping = 200-mesure-2;
+					volume_rep[i].style.height=`${mesure}px`;
+					volume_rep[i].style.top=`${topping}px`;
+		}
+	
+	}
+  	make_volume();
+  	
+  	var parent = document.querySelectorAll("#mini_analyse");
+  	console.log(parent);
+  			
+
+	//device_sg  = <%- JSON.stringify(device) %>;
+						
+  						
+	for( let i = 0; i<volume.length; i++){
+			
+						
+  	fetch(`http://192.168.43.87:3000/view_analyses?id_di=${volume[i].id_device}`)
+  						
+	.then(response => {
+		if (!response.ok) {
+			throw new Error('Erreur réseau : ' + response.status);
+		}
+			return response.json();
+	 })
+	.then(data => {
+		console.log(data);
+			
+
+						    
+		data.forEach(dat =>{
+							
+		var child = document.createElement("div");
+		var child2 = document.createElement("div");
+		
+		child.setAttribute('class','act');
+		child2.setAttribute('class','act');
+			
+
+																	
+		child.innerHTML = `
+								
+			<div>
+			  	<p class="pe">${dat.dax}</p>
+			  	<p class="pe">${dat.tix}</p>
+			</div>
+			<div>
+			  	<div id="bad"></div>
+			  	<p class="pex">(${dat.actualisation}L)</p>
+			</div>
+								
+			`;
+		child2.innerHTML=`
+		
+			<div>
+			  	<p class="pe">${dat.dax}</p>
+			  	<p class="pe">${dat.tix}</p>
+			</div>
+			<div>
+			  	<div id="good"></div>
+			  	<p class="pex"> +${dat.bonus}(${dat.actualisation}L)</p>
+			</div>
+		
+		`;
+		let rapport = (dat.actualisation/dat.volume_global)*100;
+		//console.log(i);
+		if(dat.bonus > 0){
+			parent[i].appendChild(child2);
+		}else if(rapport < 15){
+			parent[i].appendChild(child);
+		}
+			
+		});
+		
+	 })
+	.catch(error => {
+		console.error('Erreur:', error);
+		});
+			
+	 		  						
+  }	
+ 			
+</script>
+<script src="/javascripts/my_devices.js"></script>

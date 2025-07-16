@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel='stylesheet' href='/stylesheets/Authentification.css' />
+    <link rel="icon"type="image/png" href="/images/l1.png"/>
+    <title>liqnet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+  	<center>
+  	
+  		<div>
+  			<div class="action">
+  				<div class="logo">
+  					<img src="/images/l1.png">
+  				</div>
+  				<p>Authentification</p>
+  			</div>
+  			<div class="make">
+  				<center>
+  				
+  					<p>Username</p>
+  					<input type="text" id = "username" placeholder="Enter Username">
+  					<p>Password</p>
+  					<input type="password" id = "password" placeholder="Enter Password">
+  					<p class="ze" onclick="togglePasswordVisibility()">👀</p>
+  					<button id="check">connect</button>
+  				</center>	
+  		
+  			</div>
+  		</div>
+		<p class="error" id="reponse"></p>
+  	</center>
+  </body>
+</html>
+<script>
+/*
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+            .then((registration) => {
+                console.log('Service Worker enregistré avec succès:', registration);
+            })
+            .catch((error) => {
+                console.log('Échec de l\'enregistrement du Service Worker:', error);
+            });
+        });
+    }*/
+</script>
+<script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+        }
+</script>
+<script src="/javascripts/Authentification.js"></script>
+

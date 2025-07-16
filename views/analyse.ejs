@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel='stylesheet' href='/stylesheets/analyse.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+  	<section>
+  		<section class="build">
+  			<div class="info">
+  				<div class="inf">
+  					<div class="logo"></div>
+  					<div class="group_name"></div>
+  				</div>
+  				<div class="name_liquid">
+  					<p><%= info.name %></p>
+  				</div>
+  				
+  			</div>
+  			<div class="date">
+  			
+  				<div> 
+  					<p>Start Analyse</p>
+  					<input type="date">
+  				</div>
+  				<div>
+ 					<p>End Analyse</p> 				
+  					<input type="date">
+  				</div>
+  				<button>build</button>
+  			</div>
+  			<div class="impress"><p class="ico2">📚</p></div>
+  		</section>
+  		<section class="display">
+  			<section class="show">
+  				
+  				<div class="graphe">
+  				
+  					<div class="report1"></div>
+  					<div class="report2">
+  					
+  						<div>
+  							<div class="etat" id="e1"><p class="ico2">↘</p></div>
+  							<div class="visuel">
+  								
+  								<div></div>
+  								<div></div>
+  								<div></div>
+  							</div>
+  						</div>
+  						<div>
+  							<div class="etat" id="e2"><p class="ico2">↗</p></div>
+  							<div class="visuel">
+  							
+  								<div></div>
+  								<div></div>
+  								<div></div>
+  							</div>
+  						</div>
+  					</div>
+  				
+  				</div>
+  				<div class="show_info"></div>
+  			
+  			</section>
+  		</section>
+  	</section>
+  </body>
+</html>
+<script src ="/javascripts/analyse.js"></script>

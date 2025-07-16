@@ -1,0 +1,185 @@
+section{
+	width:98vw;
+	height:97vh;
+	position:relative;
+	left:0.5vw;
+	display:flex;
+	flex-direction:column;
+}
+section div{
+	width:95%;
+	height:45%;
+
+	margin-top:2%;
+	position:relative;
+	left:2.5%;
+	top:-2%;
+	display:flex;
+	flex-direction:row;
+	
+}
+section div div{
+	
+	width:45%;
+	height:90%;
+	position:relative;
+	left:2.5%;
+	margin-left:2.5%;
+	background-color:whitesmoke;
+	display:flex;
+	flex-direction:column;
+	
+}
+section div div .add_space{
+	width:35px;
+	height:35px;
+	border-radius:20px;
+	background-color:white;
+}
+
+section div div .add_space p{
+	font-size:30px;
+	position:relative;
+	left:5px;
+	top:-31px;
+	cursor:pointer;
+}
+section div div .view{
+	width:80%;
+	height:10%;
+	background-color:silver;
+	position:relative;
+	left:10%;
+	margin-top:0%;
+	border-radius:0px;
+	align-items:center;
+	justify-content:center;
+	cursor:pointer;
+}
+section div div .sm{
+	width:20px;
+	height:20px;
+	border-radius:15px;
+	background-color:orange;
+	position:relative;
+	left:400px;
+	top:-40px;
+	
+}
+#sm1{
+	left:500px;
+}
+section div .group .view{
+	width:60%;
+}
+section div div .view p{
+	font-size:20px;	
+	color:white;
+	font-family:chandas;
+
+}
+.groups{
+	width:300px;
+	height:150px;
+	background-color:gray;
+	position:absolute;
+	top:200px;
+	left:40%;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}
+.groups input[type="text"]{
+
+	width:200px;
+	border:none;
+	height:30px;
+	outline:none;
+	font-size:15px;
+	position:relative;
+	left:50px;
+}
+.groups div{
+	width:200px;
+	height:50px;
+
+	position:relative;
+	top:15px;
+	left:50px;
+	display:flex;
+	flex-direction:row;
+}
+.groups div button{
+	height:35px;
+	position:relative;
+	left:10px;
+	top:5px;
+	margin-left:15px;
+	border:none;
+}
+.groups div .red{
+	width:80px;
+	background-color:red;
+	color:white;
+}
+.groups div .green{
+	width:60px;
+	background-color:green;
+	color:white;
+}
+.sg{
+	width:300px;
+	height:200px;
+	background-color:gray;
+	position:absolute;
+	top:200px;
+	left:40%;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}
+.sg input[type="text"],[type="password"]{
+
+	width:200px;
+	border:none;
+	height:30px;
+	outline:none;
+	font-size:15px;
+	position:relative;
+	left:50px;
+	margin-top:20px;
+}
+.sg div{
+	width:200px;
+	height:50px;
+
+	position:relative;
+	top:15px;
+	left:50px;
+	display:flex;
+	flex-direction:row;
+}
+.sg div button{
+	height:35px;
+	position:relative;
+	left:10px;
+	top:5px;
+	margin-left:15px;
+	border:none;
+}
+.sg div .red{
+	width:80px;
+	background-color:red;
+	color:white;
+}
+.sg div .green{
+	width:60px;
+	background-color:green;
+	color:white;
+}
+#dev{
+	height:250px;
+}
+#usr{
+	height:300px;
+}

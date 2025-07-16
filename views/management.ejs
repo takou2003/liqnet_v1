@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel='stylesheet' href='/stylesheets/manager.css' type='text/css' />
+    <link rel="icon"type="image/png" href="/images/l1.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>liqnet</title>
+  </head>
+  <body>
+	<section>
+		
+		<div>
+			<div class="group">
+				<div class="add_space" onclick="create_group()"><p>+</p></div>
+				<% groups.forEach( group =>{ %>
+				<div class="view" onclick="view_sg('<%= group.group_id%>')" ><p><%= group.group_name %> - <%= group.date_creation %> </p></div>
+				<div class="sm" onclick="deletex('<%= group.group_id%>')"></div>
+				<% }); %> 
+			</div>
+			<div id="sous" class="sous_g">
+				
+			</div>
+		</div>
+		
+		<div>
+			<div id="device">
+			
+			</div>
+			<div id="user">
+				
+			</div>
+		</div>
+	</section>
+  </body>
+</html>
+<script src="/javascripts/manager.js"></script>

@@ -1,0 +1,278 @@
+section{
+	width:99vw;
+	height:97vh;
+	background-color:transparent;
+	position:relative;
+	top:-1px;
+	display:flex;
+	flex-direction:column;
+
+}
+section .build{
+	
+	width:80%;
+	background-color:gray;
+	height:15%;
+	display:flex;
+	flex-direction:row;
+	position:relative;
+	left:10%;
+	
+
+}
+section .build div{
+	display:flex;
+	flex-direction:row;
+	position:relative;
+}
+section .build .info{
+	
+	width:30%;
+	height:80%;
+	top:10%;
+	background-color:transparent;
+	left:80px;
+	display:flex;
+	flex-direction:row;
+}
+section .build .info .inf{
+	
+	width:60%;
+	height:96%;
+	top:2%;
+	background-color:transparent;
+	left:2%;
+	display:flex;
+	flex-direction:column;
+}
+section .build .info .inf .logo{
+	
+	width:50px;
+	height:50px;;
+	top:0%;
+	background-color:white;
+	left:26%;
+	
+}
+section .build .info .inf .group_name{
+	
+	width:150px;
+	height:30px;
+	top:2%;
+	background-color:white;
+	left:1%%;
+	
+}
+section .build .info .name_liquid{
+	width:35%;
+	height:40%;
+	top:20%;
+	background-color:gold;
+	left:2%;
+}
+section .build .info .name_liquid p{
+	
+	position:relative;
+	top:-27px;
+	font-family:chandas;
+	font-size:20px;
+	left:10px;
+	color:white;
+	
+}
+section .build .date div{
+
+	width:33%;
+	height:90%;
+	top:5%;
+	background-color:transparent;
+	margin-left:7%;
+	display:flex;
+	flex-direction:column;
+
+}
+section .build .date div p{
+	font-family:chandas;
+	font-size:12px;
+	top:-20px;
+	position:relative;
+	color:white;
+}
+section .build .date button{
+	width:20%;
+	height:40%;
+	left:10%;
+	position:relative;
+	top:33%;
+	border:none;
+	outline:none;
+	color:white;
+	background-color:teal;
+	cursor:pointer;
+}
+
+.ico2{
+	position:relative;
+	text-align:center;
+	top:-50%;
+	font-size:25px;
+	cursor:pointer;
+	left:15%;
+}
+section .build .date{
+
+	width:35%;
+	height:80%;
+	top:10%;
+	background-color:transparent;
+	left:180px;
+	
+	
+	
+}
+section .build .impress{
+	
+	width:40px;
+	height:40px;
+	background-color:white;
+	border-radius:30px;
+	left:280px;
+	top:25px;
+	
+}
+section .display{
+
+	width:100%;
+	background-color:transparent;
+	height:85%;
+	top:1%;
+	position:relative;
+}
+section .display .show{
+
+	position:relative;
+	background-color:whitesmoke;
+	height:99%;
+	width:70%;
+	left:15%;
+	display:flex;
+	flex-direction:row;
+
+}
+section .display .show div{
+
+	position:relative;
+	height:98%;
+	top:1%;
+
+}
+section .display .show .graphe{
+
+	width:82%;
+	left:1%;
+	background-color:transparent;
+	margin-right:1%;
+	display:flex;
+	flex-direction:column;
+
+}
+section .display .show .graphe div{
+	position:relative;
+	width:100%;
+	
+
+}
+section .display .show .graphe .report1{
+
+	height:80%;
+	background-color:white;
+}
+section .display .show .graphe .report2{
+
+	height:18%;
+	background-color:transparent;
+	margin-top:1%;
+	display:flex;
+	flex-direction:row;
+}
+section .display .show .graphe .report2 div{
+
+	width:48%;
+	height:100%;
+	background-color:transparent;
+	position:relative;
+	margin-left:2%;
+	left:-1%;
+	display:flex;
+	flex-direction:row;
+	
+	
+}
+section .display .show .graphe .report2 div .etat{
+
+	width:40px;
+	height:40px;
+	border-radius:30px;
+	background-color:white;
+	position:relative;
+	left:2%;
+	top:25%;
+	
+}
+#e1{
+	background-color:red;
+}
+#e1 p{
+	color:white;
+	font-size:35px;
+	position:relative;
+	top:-35px;
+}
+#e2{
+	background-color:green;
+}
+#e2 p{
+	color:white;
+	font-size:35px;
+	position:relative;
+	top:-35px;
+}
+section .display .show .graphe .report2 div .visuel{
+
+	width:70%;
+	height:90%;
+	background-color:transparent;
+	position:relative;
+	left:2%;
+	top:5%;
+	display:flex;
+	flex-direction:column;
+	
+}
+section .display .show .graphe .report2 div .visuel div {
+
+	width:80%;
+	height:30%;
+	background-color:white;
+	position:relative;
+	left:10%;
+	top:2%;
+	margin-top:1%;
+	
+	
+}
+section .display .show .show_info{
+
+	width:15%;
+	background-color:teal;
+	margin-left:1%;
+
+}
+input[type="date"]{
+	position:relative;
+	top:-30px;
+	height:40px;
+	border:none;
+	outline:none;
+	color:gold;
+}

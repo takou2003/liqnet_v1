@@ -1,0 +1,408 @@
+
+section{
+	display:flex;
+	flex-direction:column;
+	width:96vw;
+	height:96vh;
+}
+section .nav{
+
+	width:100%;
+	height:75px;
+	background-color:gray;
+	position:fixed;
+	left:1px;
+	display:flex;
+	flex-direction:row;
+	z-index:9999;
+	top:0;
+	
+}
+
+section .views{
+	
+	width:400px;
+	height:400px;
+	background-color:silver;
+	display:inline-block;
+	margin-left:50px;
+	position:relative;	
+	left:-10px;
+	margin-top:30px;
+	
+}
+section .views div{
+	width:300px;
+	height:50px;
+	background-color:gray;
+	position:relative;
+	top:-10px;
+	display:flex;
+	flex-direction:column;
+	
+}
+section .views .visual{
+
+	width:380px;
+	height:348px;
+	background-color:transparent;
+	position:relative;
+	top:0px;
+	display:flex;
+	flex-direction:row;
+	
+	
+}
+section .views .visual .sharpe{
+	background-color:transparent;
+	height:87%;
+	width:50%;
+	border-radius:0px;
+	position:relative;
+	left:0px;
+	display:flex;
+	flex-direction:column;
+	top:30px;
+	
+	
+}
+section .views .visual .sharpe .bottle_head{
+	background-color:gray;
+	height:20px;
+	width:30px;
+	position:relative;
+	border-radius:0px;
+	left:80px;
+}
+section .views .visual .sharpe .fram_e{
+	
+	width:140px;
+	height:200px;
+	background-color:white;
+	position:relative;
+	border-radius:0px;
+	left:25px;
+	top:15px;
+}
+section .views .visual .sharpe .fram_e .volume{
+	
+	width:136px;
+	position:relative;
+	border-radius:0px;
+	left:2px;
+	top:78px;
+	
+
+}
+section .views .visual .sharpe .num_e{
+	
+	width:100px;
+	height:40px;
+	background-color:gray;
+	position:relative;
+	border-radius:0px;
+	left:45px;
+	top:40px;
+	justify-content:center;
+	text-align:center;
+	
+}
+section .views .visual .sharpe .num_e p{
+	position:relative;
+	left:0px;
+}
+section .views .visual .semi_an{
+	background-color:transparent;
+	height:87%;
+	width:41%;
+	border-radius:0px;
+	position:relative;
+	margin-left:-180px;
+	top:30px;
+	display:flex;
+	flex-direction:column;
+}
+section .views .visual .semi_an .act{
+	
+	width:145px;
+	height:50px;
+	background-color:white;
+	left:8px;
+	border-radius:0px;
+	position:relative;
+	margin-top:2px;
+	display:flex;
+	flex-direction:column;
+}
+section .views .visual .semi_an .act div{
+	width:110px;
+	height:22px;
+	background-color:transparent;
+	position:relative;
+	left:5px;
+	margin-top:1px;
+	border-radius:0px;
+	top:0px;
+	display:flex;
+	flex-direction:row;
+}
+section .views .visual .semi_an .act div div{
+	width:15px;
+	height:15px;
+	
+	border-radius:10px;
+	left:0px;
+	position:relative;
+	top:5px;
+}
+section .views .visual .semi_an .act div #bad{
+	background-color:red;
+}
+section .views .visual .semi_an .act div #good{
+	background-color:green;
+}
+section .views .visual .semi_an .act div .pe{
+	left:0px;
+	font-size:11px;
+	margin-left:6px;
+	top:-8px;
+	color:gray;
+}
+section .views .visual .semi_an .act div .pex{
+	left:9px;
+	font-size:13px;
+	margin-left:10px;
+	top:-8px;
+	color:gray;
+}
+section .views .visual .semi_an .pa{
+	left:0px;
+	position:relative;
+	top:-10px;
+}
+section .views .visual .semi_an .name_sec{
+	width:120px;
+	height:30px;
+	background-color:gray;
+	position:relative;
+	left:20px;
+	border-radius:0px;
+	top:2px;
+}
+
+section .views div p{
+	
+	font-family:FreeSans;
+	color:white;
+	position:relative;
+	left:-100px;
+}
+section .views div div{
+	width:30px;
+	height:30px;
+	background-color:white;
+	border-radius:15px;
+	position:absolute;
+	left:200px;
+	top:10px;
+	cursor:pointer;
+	
+}
+section .nav .logo_entreprise{
+	width:60px;
+	height:60px;
+	background-color:white;
+	position:relative;
+	left:10px;
+	top:5px;
+	border-radius:30px;
+}
+section .nav p{
+	color:white;
+	position:relative;
+	
+	
+}
+section .nav .log{
+	width:50px;
+	height:50px;
+}
+
+	/*pc display*/
+@media screen and (min-width:1023px){
+
+	section .nav{
+
+		width:70%;
+		height:75px;
+		background-color:gray;
+		position:relative;
+		left:1px;
+		display:flex;
+		flex-direction:row;
+	
+	}
+	section .nav{
+		left:15px;
+	}
+	section .nav p{
+		left:100px;
+		font-size:20px;
+		font-family:FreeSans;
+		
+	}
+	
+	section .nav .info_user{
+		width:auto;
+		height:40px;
+		background-color:transparent;
+		position:relative;
+		top:15px;
+		left:300px;
+		cursor:pointer;
+	}
+	.icon{
+		position:relative;
+		top:5px;
+		height:40px;
+		
+	}
+
+	section .nav .info_user .pte{
+		color:black;
+		font-family:FreeSans;
+		position:relative;
+		left:0px;
+		top:-10px;
+		color:white;
+	}
+	#xte{
+		height:34px;
+		width:34px;
+		position:relative;
+		left:370px;
+		top:20px;
+	}
+}
+	/*tablette display*/
+@media screen and (max-width:1022px) and (min-width:768px){
+
+	section .nav{
+
+		width:90%;
+		height:75px;
+		background-color:gray;
+		position:relative;
+		left:1px;
+		display:flex;
+		flex-direction:row;
+	
+	}
+	section .nav{
+		left:15px;
+	}
+	section .nav p{
+		left:100px;
+		font-size:20px;
+		font-family:FreeSans;
+		
+	}
+	
+	section .nav .info_user{
+		width:auto;
+		height:40px;
+		background-color:transparent;
+		position:relative;
+		top:15px;
+		left:300px;
+		cursor:pointer;
+	}
+	.icon{
+		position:relative;
+		top:5px;
+		height:40px;
+		
+	}
+
+	section .nav .info_user .pte{
+		color:black;
+		font-family:FreeSans;
+		position:relative;
+		left:0px;
+		top:-10px;
+		color:white;
+	}
+	#xte{
+		height:34px;
+		width:34px;
+		position:relative;
+		left:370px;
+		top:20px;
+	}
+}
+	/*phone display*/
+@media screen and (max-width:767px){
+
+	section .nav{
+
+		width:99%;
+	}
+
+	section .nav p{
+		left:80px;
+		font-family:FreeSans;
+		top:5px;
+		position:absolute;
+		
+	}
+
+	section .nav .info_user{
+		width:auto;
+		height:40px;
+		background-color:transparent;
+		position:fixed;
+		top:15px;
+		left:200px;
+	}
+	.icon{
+	
+		position:relative;
+		top:5px;
+		height:30px;
+	}
+	section .nav .number_mess{
+		width:20px;
+		height:20px;
+		background-color:teal;
+		position:relative;
+		left:100px;
+		border-radius:10px;
+		top:28px;
+		
+	}
+	section .views{
+		
+		left:-30px;
+		margin-top:15px;
+		top:100px;
+		width:390px;
+		
+	}
+	
+	section .nav .info_user .pte{
+		color:white;
+		font-family:FreeSans;
+		position:relative;
+		left:0px;
+		top:-5px;
+		
+	}
+
+	#xte{
+		height:34px;
+		width:34px;
+		position:absolute;
+		left:380px;
+		top:20px;
+	}
+}
