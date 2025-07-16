@@ -104,7 +104,7 @@
 	for( let i = 0; i<volume.length; i++){
 			
 						
-  	fetch(`http://192.168.43.87:3000/view_analyses?id_di=${volume[i].id_device}`)
+  	fetch(`https://liqnet-v1.onrender.com/view_analyses?id_di=${volume[i].id_device}`)
   						
 	.then(response => {
 		if (!response.ok) {
