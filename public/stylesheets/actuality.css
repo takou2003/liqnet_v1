@@ -24,6 +24,10 @@ section .jrnl{
 	margin-top:3px;
 
 }
+section .jrnl .xe{
+	margin-left:28px;
+	left:50px;
+}
 section .jrnl div{
 	width:15px;
 	height:15px;	
@@ -47,9 +51,13 @@ section .jrnl .p3{
 }
 section .jrnl .p2{
 	left:20px;
+	font-size:11px;
+	top:10px;
 }
 section .jrnl .p1{
 	left:5px;
+	font-size:11px;
+	top:10px;
 }
 section .heading div{
 
@@ -126,21 +134,27 @@ section .jrnl{
 	top:5px;
 	position:relative;
 	margin-top:3px;
+	display:flex;
+	flex-direction:row;
 
 }
 section .jrnl div{
 	width:15px;
 	height:15px;	
 	border-radius:10px;
-	position:relative;
+
 	top:20px;
-	left:50px;
+	margin-left:60px;
+	
 }
 section .jrnl .xgreen{
 	background-color:green;
+
+	
 }
 section .jrnl .xred{
 	background-color:red;
+	left:70px;
 }
 section .jrnl p{
 	font-family:FreeSans;
@@ -148,6 +162,7 @@ section .jrnl p{
 }
 section .jrnl .p3{
 	left:70px;
+	margin:50px;
 }
 section .jrnl .p2{
 	left:20px;
@@ -205,4 +220,11 @@ section .heading .heading2 div p{
 	font-family:FreeSans;
 	color:white;
 }
+
+}
+#v{
+	color:green;
+}
+#r{
+	color:red;
 }
