@@ -11,22 +11,10 @@ let db = new sqlite3.Database('./ma_base_de_donnees.db', (err) => {
     console.log('Connecté à la base de données SQLite.');
 });
 
-/*db.serialize( () =>{
-	//db.run("DELETE FROM GROUPES WHERE group_id = ?",[2]);
-	//db.run("DELETE FROM GROUPES WHERE group_id = ?",[3]);
-	db.run(`CREATE TABLE IF NOT EXISTS consommation(id_analyse INTEGER PRIMARY KEY AUTOINCREMENT, ajout FLOAT NOT NULL, retrait FLOAT NOT NULL, date DATETIME NOT NULL, id_device TEXT, FOREIGN KEY(id_device) REFERENCES devices(id_device))`);
-	db.run(`DELETE FROM consommation`);
-	let stm_ana = db.prepare('INSERT INTO consommation(ajout,retrait,date,id_device) VALUES(?,?,?,?)');
-	stm_ana.run(0.0,0.0,"2025-05-22 18:30:05","jc1xed");
-	db.all("SELECT * FROM consommation",(err,row) =>{
-		
-		if(err){
-			console.error(err.message);
-		}else{
-			console.log(row);
-		}
-	});
-});*/
+db.serialize( () =>{
+    let stm_usr = db.prepare('INSERT INTO users(username,password,mail,phone,id_sg) VALUES(?,?,?,?,?)');
+	stm_usr.run("user1@joccidalo","joccidalo1","watercontrolesp32@gmail.com","+237679132064",9);
+});
 
 async function get_user_info(id_device){
 
@@ -217,7 +205,8 @@ async function update(idd, volume){
 		
 			//stm_ana.run(difference, volume, time, idd);
 			//recupere le ajout je fais plus difference;
-			var new_adding = info2[0].ajout + difference;
+			let conso = info2[0].ajout + difference;
+			let new_adding = Math.ceil(conso);
 			db.run('UPDATE consommation SET date = ?, ajout = ? WHERE id_device = ?',[time,new_adding,idd], function(err){
 			
 			if(err){
@@ -231,7 +220,8 @@ async function update(idd, volume){
 		
 		}else if( difference < 0){
 			//recupere le retrait je fais plus la difference;
-			var new_adding = info2[0].retrait + difference;
+			let conso = info2[0].retrait + difference;
+			let new_adding = Math.ceil(conso);
 			db.run('UPDATE consommation SET date = ?, retrait = ? WHERE id_device = ?',[time,new_adding,idd], function(err){
 			
 			if(err){
