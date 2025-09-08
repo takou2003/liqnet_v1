@@ -8,7 +8,7 @@ function view_sg(group_id){
 		create_sg(group_id);		
 	};
 	
-	fetch(`http://localhost:3000/show_sg?Mid=${group_id}`)
+	fetch(`https://liqnet-v1.onrender.com/show_sg?Mid=${group_id}`)
 	.then( response => response.json())
 	.then(datas => 
 		datas.forEach( data =>{
@@ -49,7 +49,7 @@ function view_sg_info(sg_id){
 	};
 	
 	
-	fetch(`http://localhost:3000/show_devices?Mde=${sg_id}`)
+	fetch(`https://liqnet-v1.onrender.com/show_devices?Mde=${sg_id}`)
 	.then(response => response.json())
 	.then(datas => 
 		datas.forEach( data =>{
@@ -66,7 +66,7 @@ function view_sg_info(sg_id){
 	)
 	.catch(error => console.error('Error fetching data:', error));
 	
-	fetch(`http://localhost:3000/show_users?Mde=${sg_id}`)
+	fetch(`https://liqnet-v1.onrender.com/show_users?Mde=${sg_id}`)
 	.then(response => response.json())
 	.then(datas => 
 	
@@ -122,7 +122,7 @@ function fetch_new_grp(groupname){
 	};
 
 	// Requête POST avec fetch
-	fetch("http://localhost:3000/add_group", {
+	fetch("https://liqnet-v1.onrender.com/add_group", {
 	  method: "POST",
 	  headers: {
 	    "Content-Type": "application/json", // Spécifie le format JSON
@@ -172,7 +172,7 @@ function close_sg(){
 function fetch_new_sg(json_element){
 
 	// Requête POST avec fetch
-	fetch("http://localhost:3000/add_sg", {
+	fetch("https://liqnet-v1.onrender.com/add_sg", {
 	  method: "POST",
 	  headers: {
 	    "Content-Type": "application/json", // Spécifie le format JSON
@@ -226,7 +226,7 @@ function close_device(){
 function fetch_new_device(json_element){
 
 	// Requête POST avec fetch
-	fetch("http://localhost:3000/add_device", {
+	fetch("https://liqnet-v1.onrender.com/add_device", {
 	  method: "POST",
 	  headers: {
 	    "Content-Type": "application/json", // Spécifie le format JSON
@@ -285,7 +285,7 @@ function close_user(){
 function fetch_new_user(json_element){
 
 	// Requête POST avec fetch
-	fetch("http://localhost:3000/add_user", {
+	fetch("https://liqnet-v1.onrender.com/add_user", {
 	  method: "POST",
 	  headers: {
 	    "Content-Type": "application/json", // Spécifie le format JSON
@@ -305,7 +305,7 @@ function togglePasswordVisibility() {
 }
 function deletex(id){
 
-	fetch(`http://localhost:3000/dlt-grp?id=${id}`)
+	fetch(`https://liqnet-v1.onrender.com/dlt-grp?id=${id}`)
 	.then(response => response.text())
 	.then(result => console.log("Succès :", result))
 	.catch(error => console.error("Erreur :", error));
