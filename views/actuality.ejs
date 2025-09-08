@@ -28,13 +28,10 @@
   			<div class="jrnl">
   				<p class="p1"><%= vare.dax%></p>
   				<p class="p2"><%= vare.tix%></p>
-  				<% if(vare.bonus > 0){%>
-	  				<div class="xgreen"></div>
-	  				<p class="p3">+<%= vare.bonus %>(<%= vare.actualisation%> L)</p>
-  				<%} else if(vare.bonus < 0){%>
-  					<div class="xred"></div>
-  					<p class="p3">(<%= vare.actualisation%> L)</p>
-  				<% }%>
+  				<p class="xe" id="v">+<%= vare.ajout%></p>
+  				<p class="xe" id="r"><%= vare.retrait%></p>
+
+
   			</div>
   			
 		<% }); %>
