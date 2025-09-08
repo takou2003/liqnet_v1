@@ -6,12 +6,13 @@ div{
 	display:flex;
 	flex-direction:column;
 	top:30px;
+	left:10px;
 
 }
 div div{
 	
 	position:relative;
-	width:100%;
+	width:90%;
 	margin-top:2%;
 	
 }
@@ -31,7 +32,6 @@ div .action div{
 }
 div .action p{
 	position:relative;
-
 	left:60px;
 	font-size:22px;
 	top:06px;
@@ -41,7 +41,7 @@ div .action p{
 
 }
 div .make{
-	height:60%;
+	height:70%;
 	background-color:silver;
 	display:flex;
 	flex-direction:column;
@@ -67,7 +67,7 @@ p{
 	color:red;
 	position:relative;
 	font-family:FreeSans;
-	top:-30px;
+	top:-10px;
 }
 input[type="text"],[type="password"]{
 	
