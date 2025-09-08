@@ -10,11 +10,15 @@ let db = new sqlite3.Database('./ma_base_de_donnees.db', (err) => {
     }
     console.log('Connecté à la base de données SQLite.');
 });
-/*
-db.serialize( () =>{
-	db.run("DELETE FROM GROUPES WHERE group_id = ?",[2]);
-	db.run("DELETE FROM GROUPES WHERE group_id = ?",[3]);
-	db.all("SELECT * FROM GROUPES",(err,row) =>{
+
+/*db.serialize( () =>{
+	//db.run("DELETE FROM GROUPES WHERE group_id = ?",[2]);
+	//db.run("DELETE FROM GROUPES WHERE group_id = ?",[3]);
+	db.run(`CREATE TABLE IF NOT EXISTS consommation(id_analyse INTEGER PRIMARY KEY AUTOINCREMENT, ajout FLOAT NOT NULL, retrait FLOAT NOT NULL, date DATETIME NOT NULL, id_device TEXT, FOREIGN KEY(id_device) REFERENCES devices(id_device))`);
+	db.run(`DELETE FROM consommation`);
+	let stm_ana = db.prepare('INSERT INTO consommation(ajout,retrait,date,id_device) VALUES(?,?,?,?)');
+	stm_ana.run(0.0,0.0,"2025-05-22 18:30:05","jc1xed");
+	db.all("SELECT * FROM consommation",(err,row) =>{
 		
 		if(err){
 			console.error(err.message);
@@ -22,8 +26,8 @@ db.serialize( () =>{
 			console.log(row);
 		}
 	});
-});
-*/
+});*/
+
 async function get_user_info(id_device){
 
 	return new Promise((resolve, reject) => {
@@ -55,6 +59,21 @@ async function check(idd){
 	});
 }
 
+async function check2(idd){
+
+	return new Promise((resolve, reject) =>{
+	
+		db.all('SELECT * FROM consommation WHERE id_device =?',[idd],(err,results)=>{
+			if(err){
+				console.log(`${err.message}`);
+				return reject(err);
+			}else{
+				resolve(results);
+			}
+		});
+	
+	});
+}
 async function insert_device( id_device1, name1, volume_global1, volume_actuel1, id_sg1 ){
 	
 	return new Promise((resolve,reject) =>{
@@ -188,20 +207,48 @@ function getdate(){
 
 async function update(idd, volume){
 	
-		let stm_ana = db.prepare('INSERT INTO analyses(bonus,actualisation,date,id_device) VALUES(?,?,?,?)');
+		//let stm_ana = db.prepare('INSERT INTO analyses(bonus,actualisation,date,id_device) VALUES(?,?,?,?)');
 		let info = await check(idd);
+		let info2 = await check2(idd);
 		var rapport = (volume/info[0].volume_global)*100;
 		var difference = volume - info[0].volume_actuel;
 		let time = getCurrentDateTime();
-		if(rapport < 15 || difference > 0){
+		if( difference > 0){
 		
-			stm_ana.run(difference, volume, time, idd);
+			//stm_ana.run(difference, volume, time, idd);
+			//recupere le ajout je fais plus difference;
+			var new_adding = info2[0].ajout + difference;
+			db.run('UPDATE consommation SET date = ?, ajout = ? WHERE id_device = ?',[time,new_adding,idd], function(err){
+			
+			if(err){
+				console.log(`${err.message}`);
+
+			}else{
+				console.log("update  ok");
+			}
+		
+		});
+		
+		}else if( difference < 0){
+			//recupere le retrait je fais plus la difference;
+			var new_adding = info2[0].retrait + difference;
+			db.run('UPDATE consommation SET date = ?, retrait = ? WHERE id_device = ?',[time,new_adding,idd], function(err){
+			
+			if(err){
+				console.log(`${err.message}`);
+
+			}else{
+				console.log("update  ok");
+			}
+		
+		}); 
 		}
 		statut2 = await update_device(idd,volume);
 		console.log(rapport);
 		return statut2;
 			
 }
+
 router.get('/', function(req, res, next) {
 	res.render('acceuil');
 });
@@ -218,7 +265,7 @@ router.get('/view_devices', function(req, res, next) {
 			
 		 try {
 			const sg = await sous_group(id_user); // Attendre que la promesse soit résolue
-			res.render('my_devices', { device:row, info: sg }); // Passer sg au template
+			res.render('display', { device:row, info: sg }); // Passer sg au template
 		 } catch (error) {
 			console.log(error);
 			res.status(500).send('Erreur lors de la récupération des sous-groupes');
@@ -231,7 +278,7 @@ router.get('/view_devices', function(req, res, next) {
 
 router.get('/view_analyses', function(req, res, next) {
 	var id_d = req.query.id_di;
-	db.all('SELECT volume_global, bonus, actualisation,id_device, DATE(date) AS dax, TIME(date) AS tix FROM analyses JOIN devices USING(id_device) WHERE id_device=?',[id_d],(err,row) =>{
+	db.all('SELECT ajout, retrait, id_device, DATE(date) AS dax, TIME(date) AS tix FROM consommation JOIN devices USING(id_device) WHERE id_device=?',[id_d],(err,row) =>{
 		res.json(row);
 	});
 });
@@ -239,7 +286,7 @@ router.get('/print', function(req, res, next) {
 	
 	var id_d = req.query.id_di;
 	var g_id = req.query.log;
-	db.all('SELECT bonus, actualisation,id_device, DATE(date) AS dax, TIME(date) AS tix FROM analyses WHERE id_device=?',[id_d], async (err,row) =>{
+	db.all('SELECT ajout, retrait, id_device, DATE(date) AS dax, TIME(date) AS tix FROM consommation JOIN devices USING(id_device) WHERE id_device=?',[id_d], async (err,row) =>{
 		try{
 			var result2 = await device_information(id_d);
 			//console.log(result2);
@@ -291,16 +338,9 @@ router.post('/endpoint_iot', function(req,res,next){
 });
 router.post('/second_iot', function(req,res,next){
 
-	var diff = req.query.bonus;
-	var volume = req.query.actuel;
-	var time = req.query.time;
-	var id = req.query.id_device;
-	let stm_ana = db.prepare('INSERT INTO analyses(bonus,actualisation,date,id_device) VALUES(?,?,?,?)');
-	
-	let result = stm_ana.run(diff, volume, time, id);
-	
 	
 });
+
 router.post('/add_group', async function(req, res, next) {
     try {
         // Validation des données entrantes
@@ -322,7 +362,7 @@ router.post('/add_group', async function(req, res, next) {
             }
             
             // Succès
-            res.status(201).type('text/plain').send("Succès: Groupe créé avec succès");
+            res.status(201).type('text/plain').send("ok");
         });
 
     } catch (error) {
@@ -354,7 +394,7 @@ router.post('/add_sg', async function(req, res, next) {
 		    }
 		    
 		    // Succès
-		    res.status(201).type('text/plain').send("Succès: sous-G créé avec succès");
+		    res.status(201).type('text/plain').send("ok");
 		});
         }
 
@@ -387,7 +427,7 @@ router.post('/add_device', async function(req, res, next) {
 		    }
 		    
 		    // Succès
-		    res.status(201).type('text/plain').send("Succès: sous-G créé avec succès");
+		    res.status(201).type('text/plain').send("ok");
 		});
         }
 
@@ -422,7 +462,7 @@ router.post('/add_user', async function(req, res, next) {
 		    }
 		    
 		    // Succès
-		    res.status(201).type('text/plain').send("Succès: sous-G créé avec succès");
+		    res.status(201).type('text/plain').send("ok");
 		});
         }
 
@@ -472,7 +512,7 @@ router.get('/dlt-grp', function(req,res,next){
 			console.error(`${err.message}`);
 			return res.status(500).type('text/plain').send("Erreur lors de la suppression du groupe");
 		}else{
-			res.status(201).type('text/plain').send("suppression ok !!!");	
+			res.status(201).type('text/plain').send("ok");	
 		}
 	});
 });
@@ -483,7 +523,7 @@ router.get('/dlt-sgr', function(req,res,next){
 			console.error(`${err.message}`);
 			return res.status(500).type('text/plain').send("Erreur lors de la suppression du sous-groupe");
 		}else{
-			res.status(201).type('text/plain').send("suppression ok !!!");	
+			res.status(201).type('text/plain').send("ok");	
 		}
 	});
 });
@@ -494,7 +534,7 @@ router.get('/dlt-dev', function(req,res,next){
 			console.error(`${err.message}`);
 			return res.status(500).type('text/plain').send("Erreur lors de la suppression de la peripherique");
 		}else{
-			res.status(201).type('text/plain').send("suppression ok !!!");	
+			res.status(201).type('text/plain').send("ok");	
 		}
 	});
 });
@@ -505,30 +545,23 @@ router.get('/dlt-usr', function(req,res,next){
 			console.error(`${err.message}`);
 			return res.status(500).type('text/plain').send("Erreur lors de la suppression du user");
 		}else{
-			res.status(201).type('text/plain').send("suppression ok !!!");	
+			res.status(201).type('text/plain').send("ok");	
 		}
 	});
 });
+router.get('/view_group', function(req,res,next){
+	
+	var username = req.query.usr;
+	db.all('SELECT id_user, id_sg, name_sg, ville FROM users JOIN sg USING(id_sg) WHERE username=?',[username],(err,datas) =>{
+		if(err){
+			console.error(`${err.message}`);
+		}else{
+			
+			res.render('general_view',{sgs:datas});
+		}
+	});
+	
+});
 
-/*
-const mysql = require('mysql')
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'dbuser',
-  password: 's3kreee7',
-  database: 'my_db'
-})
-
-connection.connect()
-
-connection.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {
-  if (err) throw err
-
-  console.log('The solution is: ', rows[0].solution)
-})
-
-connection.end()
-
-*/
   
 module.exports = router;
