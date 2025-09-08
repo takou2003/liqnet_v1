@@ -35,6 +35,8 @@ p{
 	background-color:whitesmoke;
 	margin-top:5px;
 	position:relative;
+	justify-content:center;
+	text-align:center;
 }
 .service div .img1{
 	height:70px;
@@ -65,12 +67,14 @@ img{
 	top:5px;
 	position:relative;
 }
+
 .pi{
 	font-size:14px;
-	color:black;
+	/*color:black;
 	font-weight:bold;
-	position:relative;
-	top:-17px;
+	position:absolute;
+	top:0px;
+	left:0px;*/
 }
 .pix{
 	font-size:14px;
